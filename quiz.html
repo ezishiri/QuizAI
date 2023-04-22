@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Quiz</h1>
+  <form action="/quiz/questions" method="post">
+    <input type="hidden" name="url" value="{{ url }}">
+    {% for question_id, question_text in questions.items() %}
+      <div class="form-group">
+        <label for="{{ question_id }}">{{ question_text }}</label>
+        <input type="text" class="form-control" id="{{ question_id }}" name="{{ question_id }}" required>
+      </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit Answers</button>
+  </form>
+{% endblock %}

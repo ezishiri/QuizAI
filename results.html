@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Results</h1>
+  <p>Your score is: {{ score }}</p>
+  {% if score|int == 100 %}
+    <p>Congratulations, you got a perfect score!</p>
+  {% elif score|int >= 60 %}
+    <p>Good job, you passed the quiz!</p>
+  {% else %}
+    <p>Sorry, you did not pass the quiz.</p>
+  {% endif %}
+{% endblock %}
